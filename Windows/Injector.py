@@ -8,9 +8,9 @@ def hasPHP():
         return True
     except:
         return False
-if(os.path.isdir("backups") == False):
-    os.mkdir("backups")
-    print("generating Folder called 'backups, to backup there the plugin before injecting'")
+if(os.path.isdir("output") == False):
+    os.mkdir("output")
+    print("generating Folder called 'output'")
 if(os.path.isdir("bin")):
     print("We are going to use the bin folder as PHP source")
     php = "bin\php\php.exe"
@@ -42,16 +42,15 @@ if(os.path.isdir("virions")):
         for p in plugins:
             print("")
             print("===> ", p)
-            print("start coping to backups")
             ap = p.replace("plugins", "")
-            bp = "backups" + ap
+            bp = "output" + ap
             ccmd = "copy" + " " + p + " " + bp
             os.system(ccmd)
             print("")
             print("")
             for v in virions:
                 print("===> ","Injecting", v, "into", p)
-                cmd = php + " -dphar.readonly=0 " + v + " " + p
+                cmd = php + " -dphar.readonly=0 " + v + " " + bp
                 os.system(cmd)
     else:
         os.mkdir("plugins")
