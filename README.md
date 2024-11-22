@@ -1,3 +1,4 @@
+## Important: Outdated due some changes of pocketmine/Poggit, !!Discontinued!!
 # PocketmineVirionInjector
 This Code simplifies the Injecting process of Virions, simply put the virions in the virions folder and the plugin in the plugins folder
 
